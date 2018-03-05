@@ -1,10 +1,8 @@
 # CIS 347 Group 4: Kyle, Ernesto, Brandon, Amy, Ricky, Don, Toby
 import requests
 import yaml
-import pprint
 import logging
 import datetime
-from collections import Counter
 
 from jnpr.junos import Device
 from jnpr.junos.utils.config import Config
@@ -61,9 +59,9 @@ EtherSwView:
     interface: mac-interfaces-list/mac-interfaces
 '''
 # Login to switch
-host = "192.168.140.10"
+host = "192.168.140.1"
 switch_user = "root"
-switch_password = "dmin12345"
+switch_password = "Admin12345"
 dev = Device(host='%s' % (host),user='%s' % (switch_user),password='%s' %(switch_password))
 dev.open()
 
@@ -96,6 +94,7 @@ for i in mac_set:
     interface = [i[:-2] for i in interface]
     new_interface = interface.pop()
     today = datetime.datetime.now()
+    #Writes down all mac binded devices to a log file
     file_object.write(today.strftime('%Y-%m-%d - %H:%M:%S,%f') + ' | ' + 'Binding Mac | ' + new_mac + ' | ' + new_interface + '\n')
     config_add.append('set interface %s allowed-mac %s' % (new_interface, new_mac))
     #Change to delete to turn led off
@@ -108,7 +107,7 @@ config_script = """
 edit ethernet-switching-options secure-access-port
 %s
 """ % (set_add)
-print config_script
+
 # Load and Commit the configuration to the switch
 cu = Config(dev)
 cu.load(config_script, format="set", merge=True)
@@ -116,7 +115,7 @@ cu.load(light_add, format="set", merge=True)
 try:
     print 'These are the changes:\n ' + cu.diff()
 except:
-    print 'Nothing to do?'
+    print 'Nothing changed?'
 cu.commit()
 print "Configuration Successful! Goodbye."
 dev.close()
