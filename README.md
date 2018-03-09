@@ -3,18 +3,18 @@
 This code is for a Software Defined Networking (SDN) project using Open Daylight (ODL) in CIS347 Telecommunications Networks. Before this script will run you need to change the ip and access credentials hardcoded in the script.
 
 ## Dependencies (May not be 100% correct)
-*Python 2
-*Yaml
-** Ubuntu 12.04: https://launchpad.net/ubuntu/precise/+package/python-yaml
-*Logging
-** Should be included by default in Python 2
-*Datetime
-** Should be included by default in Python 2
-*py-junos-eznc (PYEZ)
-** See: https://github.com/Juniper/py-junos-eznc
-** You will probably need pip. https://launchpad.net/ubuntu/precise/+package/python-pip
-*ODL Nitrogen SR2
-** See: https://www.opendaylight.org/technical-community/getting-started-for-developers/downloads-and-documentation
+* Python 2
+* Yaml
+  * Ubuntu 12.04: https://launchpad.net/ubuntu/precise/+package/python-yaml
+* Logging
+  * Should be included by default in Python 2
+* Datetime
+  * Should be included by default in Python 2
+* py-junos-eznc (PYEZ)
+  * See: https://github.com/Juniper/py-junos-eznc
+  * You will probably need pip. https://launchpad.net/ubuntu/precise/+package/python-pip
+* ODL Nitrogen SR2
+  * See: https://www.opendaylight.org/technical-community/getting-started-for-developers/downloads-and-documentation
 
 
 ## Be sure to change hardcoded ip's and credentials to match your config.
