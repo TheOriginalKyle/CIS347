@@ -18,7 +18,8 @@ This code is for a Software Defined Networking (SDN) project using Open Daylight
 
 
 ## Be sure to change hardcoded ip's and credentials to match your config.
-```odl_ip = "*your ip here*"
+```python
+odl_ip = "*your ip here*"
 username = "*your opendaylight username*"
 password = "*your opendaylight password*"
 
@@ -49,9 +50,11 @@ The full effects of this script is that everytime it is ran it will ask ODL for 
 
 ## Troubleshooting
 1. Do you see any nodes in the Yang-Ui Topology?
-* The script **WILL** crash if the JSON object it recieves is empty. This could probably be fixed but I found this bug helpful as if it were fixed nothing would happen with no error messages.
+The script **WILL** crash if the JSON object it recieves is empty. This could probably be fixed but I found this bug helpful as if it were fixed nothing would happen with no error messages.
+
 2. Do you have all the libraries. I just included the ones I could remember if there's one that should be added do let me know.
 3. Is the alarm set to POE?
 4. Are you using python2?
-5. Is it parsing the JSON correctly? I wrote this for Nitrogen it wont parse correctly on most other versions.
+5. Is it parsing the JSON correctly? Or are you on the right version?
+I wrote this for Nitrogen it wont parse correctly on most other versions.
 
