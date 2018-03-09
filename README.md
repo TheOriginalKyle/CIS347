@@ -33,13 +33,14 @@ Otherwise the script will crash. This log contains a list of every node whose ma
 
 ## Note by default ODL Nitrogen does not come with **ANY** features installed by default.
 You also should **NOT** install all of the features. About half of them are incompatible with eachother. 
-The features you need are:
+The features you need are: 
 * odl-dluxapps-applications (To make your life easier you don't actually need it)
 * odl-restconf
 * odl-l2switch-switch-ui
 * odl-ovsdb-southbound-impl-ui(?) 
 
 See here: http://docs.opendaylight.org/en/stable-nitrogen/getting-started-guide/installing_opendaylight.html
+
 AND here: http://www.brianlinkletter.com/using-the-opendaylight-sdn-controller-with-the-mininet-network-emulator/
 
 After that all you need to do is set the LED alarms of the switch to Power over Ethernet(POE). This can be done on the front panel of the switch just scroll through the LCD options until you get there. By default its set to Speed. 
@@ -50,11 +51,20 @@ The full effects of this script is that everytime it is ran it will ask ODL for 
 
 ## Troubleshooting
 1. Do you see any nodes in the Yang-Ui Topology?
-The script **WILL** crash if the JSON object it recieves is empty. This could probably be fixed but I found this bug helpful as if it were fixed nothing would happen with no error messages.
 
-2. Do you have all the libraries. I just included the ones I could remember if there's one that should be added do let me know.
+  > The script **WILL** crash if the JSON object it recieves is empty. This could probably be fixed but I found this bug helpful as if it were fixed nothing would happen with no error messages.
+
+2. Do you have all the libraries? 
+
+  > I just included the ones I could remember if there's one that should be added do let me know.
+  
 3. Is the alarm set to POE?
+
+  > The script will run without this but the lights wont indicate that the port is locked.
 4. Are you using python2?
+
+  > This script uses python2.
 5. Is it parsing the JSON correctly? Or are you on the right version?
-I wrote this for Nitrogen it wont parse correctly on most other versions.
+
+  > I wrote this for Nitrogen it wont parse correctly on most other versions.
 
