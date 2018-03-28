@@ -1,4 +1,3 @@
-# CIS 347 Group 4: Kyle, Ernesto, Brandon, Amy, Ricky, Don, Toby
 import requests
 import yaml
 import logging
@@ -114,13 +113,9 @@ for i in mac_set:
     file_object.write(today.strftime('%Y-%m-%d - %H:%M:%S,%f') + ' | ' + 'Binding Mac | ' + new_mac + ' | ' + new_interface + '\n')
     # Adds the mac that will be locked on that interface to the config.
     config_add.append('set interface %s allowed-mac %s' % (new_interface, new_mac))
-    # Change to delete to turn led off.
-    config_light.append('set poe interface %s' % (new_interface))
 
 # Puts the config in the format Junos is expecting.
 set_add = '\n'.join(map(str,config_add))
-# These are seperate due to the way config_script sets it.
-light_add = '\n'.join(map(str,config_light))
 
 # Probably could merge this with set_add but ¯\_(ツ)_/¯
 config_script = """
@@ -131,9 +126,7 @@ edit ethernet-switching-options secure-access-port
 # Load and Commit the configuration to the switch
 cu = Config(dev)
 # Merges the config with the currently running config. 
-# Probably could've merged light_add with config_script but if it aint broke.
 cu.load(config_script, format="set", merge=True)
-cu.load(light_add, format="set", merge=True)
 # This try catch is here in case there's no difference between the running config and the proposed one.
 # If you never see a difference and the ports aren't locking you are on a different version of ODL.
 try:
