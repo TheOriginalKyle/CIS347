@@ -43,10 +43,6 @@ See here: http://docs.opendaylight.org/en/stable-nitrogen/getting-started-guide/
 
 AND here: http://www.brianlinkletter.com/using-the-opendaylight-sdn-controller-with-the-mininet-network-emulator/
 
-After that all you need to do is set the LED alarms of the switch to Power over Ethernet(POE). This can be done on the front panel of the switch just scroll through the LCD options until you get there. By default its set to Speed. 
-
-See: https://kb.juniper.net/InfoCenter/index?page=content&id=KB10385&actp=METADATA
-
 The full effects of this script is that everytime it is ran it will ask ODL for all the nodes it will see. It will then parse through that JSON object for all the mac addresses then compare it with the Ethernet Switching table. When they match up it will lock the ports on each individual interface to the mac ODL sees. 
 
 ## Troubleshooting
@@ -60,10 +56,8 @@ The full effects of this script is that everytime it is ran it will ask ODL for 
   
 3. Is the alarm set to POE?
 
-  > The script will run without this but the lights wont indicate that the port is locked.
-4. Are you using python2?
-
   > This script uses python2.
+  
 5. Is it parsing the JSON correctly? Or are you on the right version?
 
   > I wrote this for Nitrogen it wont parse correctly on most other versions.
